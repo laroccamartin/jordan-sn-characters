@@ -4,10 +4,10 @@
 via **Roichman’s formula** and **uniform SYT sampling (GNW hook-walk)**, following Jordan (2008).  
 This is the *classical* part of Jordan’s result—no quantum circuits needed.
 
-$$
+$
 \hat{\chi}_\lambda(\mu) \;=\; \frac{\chi_\lambda(\mu)}{d_\lambda} 
 \;=\; \mathbb{E}_{\Lambda \sim \mathrm{SYT}(\lambda)}\!\left[ W_\mu(\Lambda) \right],
-$$
+$
 
 with $W_\mu(\Lambda) \in \{-1, 0, 1\}$ computed from relative positions of consecutive labels.
 
