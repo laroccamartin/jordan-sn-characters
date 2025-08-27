@@ -1,7 +1,16 @@
-.PHONY: setup test example
+.PHONY: setup test run-examples report ci
+
 setup:
 \tpython -m venv .venv && . .venv/bin/activate && pip install -U pip && pip install -r requirements.txt
+
 test:
 \tpytest -q
-example:
-\tpython -m src.jordan_chars.estimate --lambda 5,3 --mu 3,2,2,1 --T 5000 --raw
+
+run-examples:
+\tbash scripts/run_examples.sh
+
+report:
+\tpython scripts/auto_report.py
+
+ci:
+\t@echo "Open Actions tab on GitHub; CI runs pytest on push."

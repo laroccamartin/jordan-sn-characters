@@ -12,10 +12,8 @@ ap.add_argument("--out", type=str, default="results/hist.png")
 args = ap.parse_args()
 
 lam = parse_partition(args.lam); mu = parse_partition(args.mu)
-vals = []
-for t in range(args.trials):
-    v = normalized_character_mc(lam, mu, seed=args.seed+t, T=args.T)
-    vals.append(v)
+rng = np.random.default_rng(args.seed)
+vals = [normalized_character_mc(lam, mu, seed=int(rng.integers(0, 1<<31)), T=args.T) for _ in range(args.trials)]
 print("mean±std:", float(np.mean(vals)), float(np.std(vals)))
 plt.figure()
 plt.hist(vals, bins=20)
