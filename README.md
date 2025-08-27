@@ -4,14 +4,19 @@
 via **Roichman’s formula** and **uniform SYT sampling (GNW hook-walk)**, following Jordan (2008).  
 This is the *classical* part of Jordan’s result—no quantum circuits needed.
 
-χ̂_λ(μ) = χ_λ(μ) / d_λ = E_{Λ∼SYT(λ)}[ W_μ(Λ) ],  
-with W_μ(Λ) ∈ {−1, 0, 1} computed from relative positions of consecutive labels.
+$$
+\hat{\chi}_\lambda(\mu) \;=\; \frac{\chi_\lambda(\mu)}{d_\lambda} 
+\;=\; \mathbb{E}_{\Lambda \sim \mathrm{SYT}(\lambda)}\!\left[ W_\mu(\Lambda) \right],
+$$
 
-- Sampling Λ ∼ SYT(λ): Greene–Nijenhuis–Wilf **hook-walk**, expected O(n²).
-- Monte-Carlo: T = Θ(ε⁻² log(1/δ)) gives additive ε with prob ≥ 1−δ (Hoeffding).
+with $W_\mu(\Lambda) \in \{-1, 0, 1\}$ computed from relative positions of consecutive labels.
+
+- Sampling $\Lambda \sim \mathrm{SYT}(\lambda)$: Greene–Nijenhuis–Wilf **hook-walk**, expected $O(n^2)$.
+- Monte-Carlo: $T = \Theta(\varepsilon^{-2}\log(1/\delta))$ gives additive $\varepsilon$ with probability $\geq 1-\delta$ (Hoeffding).
 
 ## Quickstart
-~~~bash
+
+```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -U pip && pip install -r requirements.txt
 
