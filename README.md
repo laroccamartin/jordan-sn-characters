@@ -40,3 +40,16 @@ make report
 sed -n "1,200p" RESULTS.md
 ```
 
+
+## CI
+
+![CI](https://github.com/laroccamartin/jordan-sn-characters/actions/workflows/ci.yml/badge.svg)
+
+## Examples
+
+```bash
+bash scripts/run_examples.sh
+make report
+sed -n "1,200p" RESULTS.md
+```
+
