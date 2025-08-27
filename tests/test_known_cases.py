@@ -24,6 +24,6 @@ def test_standard_rep_small():
     for n in range(4,9):
         lam = (n-1,1)
         for mu in [(n,), (n-1,1), tuple([1]*n)]:
-            est = normalized_character_mc(lam, mu, epsilon=0.05, delta=1e-6, seed=2, T=3000)
+            est = normalized_character_mc(lam, mu, epsilon=0.05, delta=1e-6, seed=2, T=12000)
             truth = standard_character_norm(n, mu)
             assert abs(est - truth) < 0.25

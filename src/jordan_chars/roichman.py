@@ -21,29 +21,34 @@ def roichman_weight(mu: Partition, tableau: List[List[int]]) -> int:
     n = sum(len(r) for r in tableau)
     pos = _positions(tableau)
     B = _partial_sums(mu)
+
+    # English coordinates: rows increase downward, cols to the right.
+    def is_below(a, b):
+        (ra, ca), (rb, cb) = a, b
+        return ra > rb
+
+    def is_right_of(a, b):
+        (ra, ca), (rb, cb) = a, b
+        return ra == rb and ca > cb
+
     P = 1
     for i in range(1, n):
         if i in B:
             continue
-        (ri, ci) = pos[i]
-        (r1, c1) = pos[i+1]
-        def is_sw(a, b):  # strictly SW?
-            (ra, ca), (rb, cb) = a, b
-            return ra > rb and ca < cb
-        def is_ne(a, b):  # strictly NE?
-            (ra, ca), (rb, cb) = a, b
-            return ra < rb and ca > cb
-        if is_sw((r1,c1), (ri,ci)):
+
+        # Locations
+        p_i  = pos[i]
+        p_ip = pos[i+1]
+
+        # --- 0-case first: (i+1) is to the right of i AND (i+2) is below (i+1), provided (i+1) ∉ B(μ)
+        f = 1
+        if (i+1) not in B and (i+2) in pos and is_right_of(p_ip, p_i) and is_below(pos[i+2], p_ip):
+            f = 0
+        # --- -1 case: (i+1) is below i
+        elif is_below(p_ip, p_i):
             f = -1
-        else:
-            if (i+1) not in B and (i+2) in pos:
-                (r2, c2) = pos[i+2]
-                if is_ne((r1,c1), (ri,ci)) and is_sw((r2,c2), (r1,c1)):
-                    f = 0
-                else:
-                    f = 1
-            else:
-                f = 1
+        # else f stays +1
+
         P *= f
         if P == 0:
             break
