@@ -24,3 +24,6 @@
 
 ### example standard lambda71 mu8
 - value: `-0.14308333333333334`
+
+## Runtime & Error vs n (μ = n-cycle, T=8000)
+
