@@ -4,15 +4,12 @@
 via **Roichman’s formula** and **uniform SYT sampling (GNW hook-walk)**, following Jordan (2008).  
 This is the *classical* part of Jordan’s result—no quantum circuits needed.
 
-$
-\hat{\chi}_\lambda(\mu) \;=\; \frac{\chi_\lambda(\mu)}{d_\lambda} 
-\;=\; \mathbb{E}_{\Lambda \sim \mathrm{SYT}(\lambda)}\!\left[ W_\mu(\Lambda) \right],
-$
+![chi-hat](https://latex.codecogs.com/svg.image?\hat{\chi}_\lambda(\mu)=\frac{\chi_\lambda(\mu)}{d_\lambda}=\mathbb{E}_{\Lambda\sim\mathrm{SYT}(\lambda)}\!\left[W_\mu(\Lambda)\right])
 
-with $W_\mu(\Lambda) \in \{-1, 0, 1\}$ computed from relative positions of consecutive labels.
+with ![Wmu](https://latex.codecogs.com/svg.image?W_\mu(\Lambda)\in\{-1,0,1\}) computed from relative positions of consecutive labels.
 
-- Sampling $\Lambda \sim \mathrm{SYT}(\lambda)$: Greene–Nijenhuis–Wilf **hook-walk**, expected $O(n^2)$.
-- Monte-Carlo: $T = \Theta(\varepsilon^{-2}\log(1/\delta))$ gives additive $\varepsilon$ with probability $\geq 1-\delta$ (Hoeffding).
+- Sampling ![Lambda](https://latex.codecogs.com/svg.image?\Lambda\sim\mathrm{SYT}(\lambda)): Greene–Nijenhuis–Wilf **hook-walk**, expected ![On2](https://latex.codecogs.com/svg.image?O(n^2)).
+- Monte-Carlo: ![Tbound](https://latex.codecogs.com/svg.image?T=\Theta(\varepsilon^{-2}\log(1/\delta))) gives additive ![eps](https://latex.codecogs.com/svg.image?\varepsilon) with probability ![prob](https://latex.codecogs.com/svg.image?\ge%201-\delta) (Hoeffding).
 
 ## Quickstart
 
