@@ -53,3 +53,12 @@ make report
 sed -n "1,200p" RESULTS.md
 ```
 
+
+## Plots
+
+Runtime and absolute error across n (10 random λ per n, μ=n-cycle, T=8000):
+
+![](results/plot_runtime_vs_n.png)
+
+![](results/plot_error_vs_n.png)
+
