@@ -9,10 +9,10 @@ def _col_height(lam: Partition, j: int) -> int:
     return sum(1 for r in lam if r > j)
 
 def _is_corner(lam: Partition, i: int, j: int) -> bool:
-    # corner = no cell to the right and no cell below
+    # corner on the rim path: boundary cell with no right OR no below
     right = lam[i] - 1 - j
     down  = _col_height(lam, j) - 1 - i
-    return right == 0 and down == 0
+    return (right == 0) or (down == 0)
 
 def _rim_path(lam: Partition) -> List[Tuple[int,int]]:
     """Return the rim path cells from top-right to bottom-left (inclusive)."""
