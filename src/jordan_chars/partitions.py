@@ -4,7 +4,6 @@ import math
 Partition = Tuple[int, ...]  # nonincreasing
 
 def parse_partition(s: str) -> Partition:
-    """Parse '4,2,1' -> (4,2,1)."""
     parts = tuple(int(x) for x in s.strip().replace(' ', '').split(',') if x)
     if any(p <= 0 for p in parts): raise ValueError("parts must be positive")
     if any(parts[i] < parts[i+1] for i in range(len(parts)-1)):
@@ -15,10 +14,8 @@ def partition_size(lam: Partition) -> int:
     return sum(lam)
 
 def hook_lengths(lam: Partition) -> List[List[int]]:
-    """Hook length matrix for English convention rows."""
     rows = len(lam)
     HL = []
-    # column heights
     def col_height(j:int)->int:
         return sum(1 for r in lam if r > j)
     for i in range(rows):
@@ -31,7 +28,6 @@ def hook_lengths(lam: Partition) -> List[List[int]]:
     return HL
 
 def dim_hook_length(lam: Partition) -> int:
-    """d_lambda = n! / prod hooks."""
     n = partition_size(lam)
     HL = hook_lengths(lam)
     prod = 1
@@ -40,5 +36,4 @@ def dim_hook_length(lam: Partition) -> int:
     return math.factorial(n) // prod
 
 def count_fixed_points(mu: Partition) -> int:
-    """# of 1-cycles in cycle type mu."""
     return sum(1 for x in mu if x == 1)
